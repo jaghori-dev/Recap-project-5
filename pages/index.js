@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import Card from "@/components/Card";
 import useSWR from "swr";
 import Image from "next/image";
@@ -21,7 +20,6 @@ export default function HomePage() {
 
   return (
     <>
-      <Header />
       {data.map((item) => {
         return (
           <Card key={item.slug} title={item.artist} description={item.name}>
