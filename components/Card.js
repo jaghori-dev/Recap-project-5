@@ -12,8 +12,8 @@ export default function Card({ title, description, imageSource }) {
         />
       </div>
       <div className="art-card-body">
-        <h2 className="art-title">{title}</h2>
-        <p className="art-description">{description}</p>
+        <h2 className="art-title">{description}</h2>
+        <p className="art-description">Artist: {title}</p>
       </div>
     </div>
   );
