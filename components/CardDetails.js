@@ -22,7 +22,7 @@ export default function CardDetails({ artPiece }) {
           <p className="art-description">Genre: {artPiece.genre}</p>
 
           <Link href="/gallery">
-            <button>back to gallery</button>
+            back to gallery
           </Link>
         </div>
       </div>
