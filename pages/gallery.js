@@ -1,17 +1,13 @@
 import Card from "@/components/Card";
 import useSWR from "swr";
 
-const fetcher = async (url) => {
-  const response = await fetch(url);
-  const data = await response.json();
-  return data;
-};
+// const fetcher = async (url) => {
+//   const response = await fetch(url);
+//   const data = await response.json();
+//   return data;
+// };
 
-export default function Gallery() {
-  const { data, error, isLoading } = useSWR(
-    "https://example-apis.vercel.app/api/art",
-    fetcher
-  );
+export default function Gallery({data, error, isLoading}) {
 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
