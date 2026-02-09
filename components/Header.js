@@ -1,7 +1,7 @@
 
 export default function Header () {
   return (
-    <header className="header-styles"> {/* Füge CSS-Klasse hinzu */}
+    <header className="header-styles">
       <h1>Art Gallery</h1>
       <nav className="nav-styles">
         <ul className="nav-list">

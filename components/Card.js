@@ -6,8 +6,8 @@ export default function Card({ title, description, imageSource }) {
       <div className="art-image-wrapper">
         <Image
           src={`${imageSource}`}
-          height={100}
-          width={100}
+          height={200}
+          width={200}
           alt={name}
         />
       </div>
