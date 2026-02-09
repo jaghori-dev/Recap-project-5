@@ -19,7 +19,7 @@ export default function HomePage() {
   console.log(data);
 
   return (
-    <>
+    <section className="gallery-grid">
       {data.map((item) => {
         return (
           <Card key={item.slug} title={item.artist} description={item.name}>
@@ -32,6 +32,6 @@ export default function HomePage() {
           </Card>
         );
       })}
-    </>
+    </section>
   );
 }
