@@ -10,10 +10,11 @@ const fetcher = async (url) => {
   return data;
 };
 export default function App({ Component, pageProps }) {
-    const { data: artPieces, error, isLoading } = useSWR(
-    "https://example-apis.vercel.app/api/art",
-    fetcher
-  );
+  const {
+    data: artPieces,
+    error,
+    isLoading,
+  } = useSWR("https://example-apis.vercel.app/api/art", fetcher);
 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
@@ -21,11 +22,9 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <Header/>
+      <Header />
       <main className="app-main">
-        <Component {...pageProps}
-        artPieces={artPieces}
-        />
+        <Component {...pageProps} artPieces={artPieces} />
       </main>
     </>
   );
