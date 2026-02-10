@@ -1,4 +1,4 @@
-import Card from "./Card/Card";
+import Card from "./Card";
 import { render, screen } from "@testing-library/react";
 
 test("should render heading", () => {
