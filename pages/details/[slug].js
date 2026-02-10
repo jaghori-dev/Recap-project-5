@@ -1,4 +1,3 @@
-
 import { useRouter } from "next/router";
 import NotFound from "@/components/NotFound";
 import Loading from "@/components/Loading";
