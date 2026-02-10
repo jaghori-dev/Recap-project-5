@@ -1,0 +1,33 @@
+import Card from "@/components/Card";
+import styled from "styled-components";
+
+export default function ArtGallery({artPieces}) {
+  return (
+    <Section>
+      {artPieces.map((item) => {
+        return (
+          <Card
+            key={item.slug}
+            slug={item.slug}
+            title={item.artist}
+            description={item.name}
+            imageSource={item.imageSource}
+          />
+        );
+      })}
+    </Section>
+  );
+}
+
+const Section = styled.section`
+  display: grid;
+  place-items: center;
+  min-height: 60vh;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+
+  @media (max-width: 768px) {
+    padding: 1rem 0.5rem;
+  }
+`;
