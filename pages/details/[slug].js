@@ -1,5 +1,6 @@
 import CardDetails from "@/components/CardDetails";
 import { useRouter } from "next/router";
+import CommentInput from "@/components/CommentInput";
 
 export default function Details({ artPieces }) {
   const router = useRouter();
