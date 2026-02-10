@@ -4,19 +4,17 @@ import styled from "styled-components";
 export default function ArtGallery({artPieces}) {
   return (
     <Section>
-      {artPieces.map((item) => {
-        return (
-          <Card
-            key={item.slug}
-            slug={item.slug}
-            title={item.artist}
-            description={item.name}
-            imageSource={item.imageSource}
-          />
-        );
-      })}
+      {artPieces.map((item) => (
+        <Card
+          key={item.slug}
+          slug={item.slug}
+          title={item.artist}
+          description={item.name}
+          imageSource={item.imageSource}
+        />
+      ))}
     </Section>
-  );
+  )
 }
 
 const Section = styled.section`

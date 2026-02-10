@@ -1,15 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import styled from "styled-components";
 
 export default function Card({ title, description, imageSource, slug }) {
-  const router = useRouter();
   return (
     <Section>
       <ArtCard>
         <ArtCardImageWrapper href={`/details/${slug}`}>
-          <ArtCardImage src={`${imageSource}`} height={200} width={200} alt={name} />
+          <ArtCardImage
+            src={`${imageSource}`}
+            height={200}
+            width={200}
+            alt={description} />
         </ArtCardImageWrapper>
         <ArtCardBody>
           <ArtCardTitle >
@@ -30,10 +32,12 @@ export default function Card({ title, description, imageSource, slug }) {
 
 const Section = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 380px));
   gap: 2rem;
-  place-items: start;  
+  justify-content: center;
   padding: 2rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
   
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -47,6 +51,7 @@ const ArtCard = styled.div`
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   overflow: hidden;
+  max-width: 380px;
   width: 100%;
   height: 350px;  
   display: flex;
@@ -71,7 +76,7 @@ const ArtCardBody = styled.div`
   justify-content: space-between;
 `;
 
-const ArtCardTitle = styled.h2`
+const ArtCardTitle = styled.div`
   font-size: 1.25rem;
   font-weight: 600;
   color: #1e293b;
@@ -133,6 +138,12 @@ const ArtCardImageWrapper = styled(Link)`
   overflow: hidden;
   position: relative;
   display: block; 
+  
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.02); 
+  }
 `;
 
 const ArtCardImage = styled(Image)`
