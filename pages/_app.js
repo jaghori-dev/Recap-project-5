@@ -1,6 +1,5 @@
 import GlobalStyle from "../styles";
 import Header from "@/components/Header";
-import "../components/Header.css";
 import useSWR from "swr";
 
 const fetcher = async (url) => {
