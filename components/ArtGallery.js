@@ -8,9 +8,10 @@ export default function ArtGallery({artPieces}) {
         <Card
           key={item.slug}
           slug={item.slug}
-          title={item.artist}
-          description={item.name}
+          artist={item.artist}
+          imageName={item.name}
           imageSource={item.imageSource}
+          isGallery={true}
         />
       ))}
     </Section>

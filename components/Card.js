@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 
-export default function Card({ artist, imageName, imageYear= "", imageGenre="", imageSource, slug }) {
+export default function Card({ artist, imageName, imageYear= "", imageGenre="", imageSource, slug, isGallery = false }) {
   return (
     <Section>
       <ArtCard>
@@ -23,14 +23,17 @@ export default function Card({ artist, imageName, imageYear= "", imageGenre="", 
             <ArtCardLabel>Artist:</ArtCardLabel>
             <ArtCardValue>{artist}</ArtCardValue>
            </ArtCardItem>
-          <ArtCardItem>
-            <ArtCardLabel>Year:</ArtCardLabel>
-            <ArtCardValue>{imageYear}</ArtCardValue>
-          </ArtCardItem>
-          <ArtCardItem>
-            <ArtCardLabel>Genre:</ArtCardLabel>
-            <ArtCardValue>{imageGenre}</ArtCardValue>
-          </ArtCardItem>
+          {!isGallery && (
+            <>
+            <ArtCardItem>
+              <ArtCardLabel>Year:</ArtCardLabel>
+              <ArtCardValue>{imageYear}</ArtCardValue>
+            </ArtCardItem>
+            <ArtCardItem>
+              <ArtCardLabel>Genre:</ArtCardLabel>
+              <ArtCardValue>{imageGenre}</ArtCardValue>
+            </ArtCardItem>
+            </>)}
         </ArtCardBody>
       </ArtCard>
     </Section>
