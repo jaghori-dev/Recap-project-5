@@ -7,6 +7,7 @@ import CommentForm from "@/components/Comments/CommentForm";
 import CardComments from "@/components/Comments/CardComments";
 import useLocalStorageState from "use-local-storage-state";
 import { comments as localComments } from "@/assets/comments";
+import ColorPalette from "@/components/ColorPalette/ColorPalette";
 
 
 export default function Details({ artPieces }) {
@@ -35,6 +36,8 @@ export default function Details({ artPieces }) {
             imageYear={artPiece.year}
             imageGenre={artPiece.genre}
             imageSource={artPiece.imageSource} />
+
+     {<ColorPalette/>}
 
       <CommentForm
         comments = {comments}
