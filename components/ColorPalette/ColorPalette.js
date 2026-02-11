@@ -16,7 +16,6 @@ console.log("farben", colors);
   );
 }
 
-// Styles bleiben gleich wie zuvor
 const PaletteContainer = styled.section`
   display: flex;
   flex-direction: column;
@@ -27,7 +26,6 @@ const PaletteContainer = styled.section`
   max-width: 380px;
   margin: 0 auto;
 `;
-
 
 const ColorsGrid = styled.div`
   display: flex;
