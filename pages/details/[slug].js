@@ -3,7 +3,7 @@ import NotFound from "@/components/NotFound";
 import Loading from "@/components/Loading";
 import Card from "@/components/Card/Card";
 import LinkButton from "@/components/LinkButton";
-import CommentInput from "@/components/CommentInput";
+import CommentForm from "@/components/CommentForm";
 import CardComments from "@/components/CardComments";
 import useLocalStorageState from "use-local-storage-state";
 import { comments as localComments } from "@/assets/comments";
@@ -36,11 +36,7 @@ export default function Details({ artPieces }) {
                imageGenre={artPiece.genre}
                imageSource={artPiece.imageSource} />
 
-      <LinkButton
-        text="Back to Gallery"
-        link="/gallery"/>
-
-      <CommentInput
+      <CommentForm
       comments = {comments}
       setComments = {setComments}
       artPiece = {artPiece}
@@ -50,6 +46,10 @@ export default function Details({ artPieces }) {
         comments = {comments}
         artPiece = {artPiece}
       />
+
+      <LinkButton
+        text="Back to Gallery"
+        link="/gallery"/>
     </>
   );
 }
