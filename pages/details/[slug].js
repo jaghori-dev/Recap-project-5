@@ -9,7 +9,8 @@ import useLocalStorageState from "use-local-storage-state";
 import { comments as localComments } from "@/assets/comments";
 
 
-export default function Details({ artPieces }) {
+export default function Details({ artPieces,favorites,
+                                  toggleFavorites }) {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -35,6 +36,8 @@ export default function Details({ artPieces }) {
                imageYear={artPiece.year}
                imageGenre={artPiece.genre}
                imageSource={artPiece.imageSource} />
+      isFavorite={!!favorites?.[slug]}
+      onClick={() => toggleFavorites(slug)}
 
       <CommentForm
       comments = {comments}

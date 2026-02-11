@@ -31,6 +31,9 @@ const GlobalStyle = createGlobalStyle`
     color: var(--text-primary);
     line-height: 1.6;
   }
+    ul {
+    list-style: none;
+    }
   
   @media (max-width: 768px) {
     :root {
