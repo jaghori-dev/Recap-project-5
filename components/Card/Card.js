@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
+import LikeButton from "@/components/Buttons/LikeButton";
 
 export default function Card({ artist, imageName, imageYear= "", imageGenre="", imageSource, slug, isDetails = true }) {
   return (
@@ -12,6 +13,10 @@ export default function Card({ artist, imageName, imageYear= "", imageGenre="", 
             height={200}
             width={200}
             alt={imageName} />
+          <LikeButton
+            initialLiked={false}
+            onToggle={(liked) => console.log('Liked:', liked)}
+          />
         </ArtCardImageWrapper>
         <ArtCardBody>
           <ArtCardTitle >
