@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export default function CardComments({comments, artPiece}){
-  const filteredComments = comments.filter(
+  const safeComments = Array.isArray(comments) ? comments : [];
+  const filteredComments = safeComments.filter(
     (comment) => comment.slug === artPiece.slug
   );
 

@@ -6,8 +6,7 @@ import LinkButton from "@/components/Buttons/LinkButton";
 import CommentForm from "@/components/Comments/CommentForm";
 import CardComments from "@/components/Comments/CardComments";
 import useLocalStorageState from "use-local-storage-state";
-import { comments as localComments } from "@/assets/comments";
-
+import ColorPalette from "@/components/ColorPalette/ColorPalette";
 
 export default function Details({ artPieces }) {
   const router = useRouter();
@@ -15,7 +14,7 @@ export default function Details({ artPieces }) {
 
   const [comments, setComments] = useLocalStorageState(
     "comments", {
-      defaultValue: localComments,
+      defaultValue: [],
     });
 
   if (!slug) {
@@ -23,7 +22,7 @@ export default function Details({ artPieces }) {
   }
 
   const artPiece = artPieces.find((art) => art.slug === slug);
-
+  console.log("Art", artPiece);
   if (!artPiece) {
     return <NotFound/>;
   }
@@ -34,10 +33,16 @@ export default function Details({ artPieces }) {
             imageName={artPiece.name}
             imageYear={artPiece.year}
             imageGenre={artPiece.genre}
-            imageSource={artPiece.imageSource} />
+            imageSource={artPiece.imageSource}
+            slug={slug}
+            isDetails={true}
+      />
+
+     <ColorPalette
+        colors = {artPiece.colors}
+     />
 
       <CommentForm
-        comments = {comments}
         setComments = {setComments}
         artPiece = {artPiece}
       />
