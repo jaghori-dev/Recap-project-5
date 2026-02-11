@@ -20,7 +20,7 @@ export default function Homepage({ artPieces, favorites, toggleFavorites }) {
       imageSource={art.imageSource}
       slug={art.slug}
       isDetails={false}
-      isFavorite={favorites[art.slug]}
+      isFavorite={!!favorites[art.slug]}
       onClick={() => toggleFavorites(art.slug)}
     />
   );

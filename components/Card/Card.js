@@ -24,7 +24,7 @@ export default function Card({
             width={24}
             onClick={(event) => {
               event.preventDefault();
-              onClick();
+              onClick?.();
             }}
           />
           <ArtCardImage

@@ -7,14 +7,20 @@ import CommentInput from "@/components/CommentInput";
 import Container from "@/components/CommentContainer";
 import styled from "styled-components";
 
-export default function Details({ artPieces, handleFormValue, comments }) {
+export default function Details({
+  artPieces,
+  handleFormValue,
+  comments,
+  favorites,
+  toggleFavorites,
+}) {
   const router = useRouter();
 
   function onFormChange(event) {
     event.preventDefault();
     const newComment = event.target.comment.value;
     handleFormValue(artPiece.slug, newComment);
-    event.target.reset()
+    event.target.reset();
   }
   const { slug } = router.query;
   if (!slug) {
@@ -37,6 +43,8 @@ export default function Details({ artPieces, handleFormValue, comments }) {
         imageYear={artPiece.year}
         imageGenre={artPiece.genre}
         imageSource={artPiece.imageSource}
+        isFavorite={!!favorites?.[slug]}
+        onClick={() => toggleFavorites(slug)}
       />
       <LinkButton text="Back to Gallery" link="/gallery" />
       <CommentInput onSubmit={onFormChange} />
@@ -61,15 +69,15 @@ export default function Details({ artPieces, handleFormValue, comments }) {
 const CommentsWraper = styled.div`
   background: var(--bg-secondary);
   border-radius: 10px;
-  min-height:50px;
+  min-height: 50px;
   margin-top: 5px;
   padding: 5px;
   box-shadow: var(--shadow);
-  border: solid 1px ;
+  border: solid 1px;
   position: relative;
 `;
 const Date = styled.small`
-position: absolute;
-right: 4px;
-bottom: 0;
-`
+  position: absolute;
+  right: 4px;
+  bottom: 0;
+`;
