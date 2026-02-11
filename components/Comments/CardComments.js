@@ -7,21 +7,21 @@ export default function CardComments({comments, artPiece}){
 
   return(
     <CommentsWrapper>
-      <CommentsList>
-        {filteredComments.map((comment) => {
-          return (
+      {filteredComments.length > 0 ? (
+        <CommentsList>
+          {filteredComments.map((comment) => (
             <CommentItem key={comment.slug}>
-              <CommentContent>
-                {comment.comment}
-              </CommentContent>
-              <CommentDate>
-                {comment.date}
-              </CommentDate>
+              <CommentContent>{comment.comment}</CommentContent>
+              <CommentDate>{comment.date}</CommentDate>
             </CommentItem>
-          );
-        })}
-      </CommentsList>
-  </CommentsWrapper>
+          ))}
+        </CommentsList>
+      ) : (
+        <NoComments>
+          No comments yet. Be the first!
+        </NoComments>
+      )}
+    </CommentsWrapper>
   );
 }
 
@@ -80,4 +80,9 @@ const CommentDate = styled.span`
   color: #64748b;
   font-size: 0.875rem;
   font-weight: 500;
+`;
+
+const NoComments = styled.p`
+  color: #64748b;
+  font-style: italic;
 `;
