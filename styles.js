@@ -17,10 +17,6 @@ const GlobalStyle = createGlobalStyle`
     --spacing-lg: 2rem;
     --border-radius: 12px;
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    
-    /* Buttons & Links */
-    --btn-padding: 0.75rem 1.5rem;
-    --btn-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   * {
@@ -36,7 +32,6 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.6;
   }
   
-  /* Responsive */
   @media (max-width: 768px) {
     :root {
       --font-size-h1: 1.5rem;
