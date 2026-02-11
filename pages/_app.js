@@ -24,7 +24,9 @@ export default function App({ Component, pageProps }) {
       <GlobalStyle />
       <Header />
       <Main>
-        <Component {...pageProps} artPieces={artPieces} />
+        <Component {...pageProps}
+                   artPieces={artPieces}
+        />
       </Main>
     </>
   );

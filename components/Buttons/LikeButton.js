@@ -14,7 +14,7 @@ export default function LikeButton({ initialLiked = false, onToggle }) {
   return (
     <LikeButtonContainer>
       <StyledButton
-        $isLiked = {isLiked}
+        $isLiked={isLiked}
         onClick={(e) => {
           e.stopPropagation();
           e.preventDefault();
