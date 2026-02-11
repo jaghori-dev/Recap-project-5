@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-
 const GlobalStyle = createGlobalStyle`
   :root {
     --bg-primary: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -31,9 +30,6 @@ const GlobalStyle = createGlobalStyle`
     color: var(--text-primary);
     line-height: 1.6;
   }
-    ul {
-    list-style: none;
-    }
   
   @media (max-width: 768px) {
     :root {

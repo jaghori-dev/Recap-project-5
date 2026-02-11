@@ -23,7 +23,7 @@ export default function Header() {
             </NavLink>
           </li>
           <li>
-            <NavLink href="/gallery" active={currentPath === '/gallery'}>
+            <NavLink href="/gallery" active={currentPath === '/gallery' || currentPath.startsWith('/details')}>
               Gallery
               <Arrow viewBox="0 0 24 24" fill="currentColor">
                 <path d="M7 10l5 5 5-5z" />
