@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function CommentForm({comments, setComments, artPiece}) {
+export default function CommentForm({setComments, artPiece}) {
   function handleFormValue(event) {
     event.preventDefault();
     const newComment = event.target.comment.value;
@@ -11,13 +11,13 @@ export default function CommentForm({comments, setComments, artPiece}) {
       timeStyle: "short",
     });
 
-    setComments(() => [
+    setComments((prevComments) => [
       {
         comment: newComment,
         date: dateTime,
         slug: artPiece.slug
       },
-      ...comments,
+      ...(Array.isArray(prevComments) ? prevComments : []),
     ]);
 
     event.target.reset();

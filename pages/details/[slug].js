@@ -6,7 +6,6 @@ import LinkButton from "@/components/Buttons/LinkButton";
 import CommentForm from "@/components/Comments/CommentForm";
 import CardComments from "@/components/Comments/CardComments";
 import useLocalStorageState from "use-local-storage-state";
-import { comments as localComments } from "@/assets/comments";
 import ColorPalette from "@/components/ColorPalette/ColorPalette";
 
 export default function Details({ artPieces }) {
@@ -15,7 +14,7 @@ export default function Details({ artPieces }) {
 
   const [comments, setComments] = useLocalStorageState(
     "comments", {
-      defaultValue: localComments,
+      defaultValue: [],
     });
 
   if (!slug) {
@@ -44,7 +43,6 @@ export default function Details({ artPieces }) {
      />
 
       <CommentForm
-        comments = {comments}
         setComments = {setComments}
         artPiece = {artPiece}
       />
