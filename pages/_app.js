@@ -15,7 +15,7 @@ const fetcher = async (url) => {
 export default function App({ Component, pageProps }) {
   const [comments, setComments] = useLocalStorageState("comments", {defaultValue:[]});
   const [favorites, setFavorites] = useLocalStorageState("favorites", {
-    defaultValue: {},
+    defaultValue: [],
   });
 
   const {
@@ -36,17 +36,9 @@ export default function App({ Component, pageProps }) {
     if(newComment === ''){
       return
     }
-    console.log(newComment);
     const date = new Date().toLocaleDateString("en-us", {
       dateStyle: "medium",
     });
-  
-
-
-
-  if (error) return <Error />;
-  if (isLoading) return <Loading />;
-
     setComments((prevComments) => [
       { comment: newComment, date, slug, isFavorite: false },
       ...prevComments,
