@@ -6,7 +6,6 @@ import LinkButton from "@/components/LinkButton";
 import CommentInput from "@/components/CommentInput";
 import Container from "@/components/CommentContainer";
 import styled from "styled-components";
-// import CommentsWraper from "@/components/CommentsWraper";
 
 export default function Details({ artPieces, handleFormValue, comments }) {
   const router = useRouter();
