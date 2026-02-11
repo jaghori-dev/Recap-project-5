@@ -4,10 +4,19 @@ import Loading from "@/components/Loading";
 import Card from "@/components/Card/Card";
 import LinkButton from "@/components/LinkButton";
 import CommentInput from "@/components/CommentInput";
+import CardComments from "@/components/CardComments";
+import useLocalStorageState from "use-local-storage-state";
+import { comments as localComments } from "@/assets/comments";
+
 
 export default function Details({ artPieces }) {
   const router = useRouter();
   const { slug } = router.query;
+
+  const [comments, setComments] = useLocalStorageState(
+    "comments", {
+      defaultValue: localComments,
+    });
 
   if (!slug) {
     return <Loading/>;
@@ -26,9 +35,21 @@ export default function Details({ artPieces }) {
                imageYear={artPiece.year}
                imageGenre={artPiece.genre}
                imageSource={artPiece.imageSource} />
+
       <LinkButton
         text="Back to Gallery"
         link="/gallery"/>
-      </>
+
+      <CommentInput
+      comments = {comments}
+      setComments = {setComments}
+      artPiece = {artPiece}
+      />
+
+      <CardComments
+        comments = {comments}
+        artPiece = {artPiece}
+      />
+    </>
   );
 }
