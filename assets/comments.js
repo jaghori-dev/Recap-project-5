@@ -1,4 +1,4 @@
-export const initComments = [
+export const comments = [
   {
     slug: "orange-red-and-green",
     isFavorite : false,

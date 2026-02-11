@@ -2,82 +2,54 @@ import { useRouter } from "next/router";
 import NotFound from "@/components/NotFound";
 import Loading from "@/components/Loading";
 import Card from "@/components/Card/Card";
-import LinkButton from "@/components/LinkButton";
-import CommentInput from "@/components/CommentInput";
-import Container from "@/components/CommentContainer";
-import styled from "styled-components";
+import LinkButton from "@/components/Buttons/LinkButton";
+import CommentForm from "@/components/Comments/CommentForm";
+import CardComments from "@/components/Comments/CardComments";
+import useLocalStorageState from "use-local-storage-state";
+import { comments as localComments } from "@/assets/comments";
 
-export default function Details({
-  artPieces,
-  handleFormValue,
-  comments,
-  favorites,
-  toggleFavorites,
-}) {
+
+export default function Details({ artPieces }) {
   const router = useRouter();
-
-  function onFormChange(event) {
-    event.preventDefault();
-    const newComment = event.target.comment.value;
-    handleFormValue(artPiece.slug, newComment);
-    event.target.reset();
-  }
   const { slug } = router.query;
+
+  const [comments, setComments] = useLocalStorageState(
+    "comments", {
+      defaultValue: localComments,
+    });
+
   if (!slug) {
-    return <Loading />;
+    return <Loading/>;
   }
 
-  const artPiece = artPieces.find((artPiece) => artPiece.slug === slug);
+  const artPiece = artPieces.find((art) => art.slug === slug);
 
   if (!artPiece) {
-    return <NotFound />;
+    return <NotFound/>;
   }
-  const filteredComments = comments.filter(
-    (comment) => comment.slug === artPiece.slug
-  );
+
   return (
     <>
-      <Card
-        artist={artPiece.artist}
-        imageName={artPiece.name}
-        imageYear={artPiece.year}
-        imageGenre={artPiece.genre}
-        imageSource={artPiece.imageSource}
-        isFavorite={!!favorites?.[slug]}
-        onClick={() => toggleFavorites(slug)}
+      <Card artist={artPiece.artist}
+               imageName={artPiece.name}
+               imageYear={artPiece.year}
+               imageGenre={artPiece.genre}
+               imageSource={artPiece.imageSource} />
+
+      <CommentForm
+      comments = {comments}
+      setComments = {setComments}
+      artPiece = {artPiece}
       />
-      <LinkButton text="Back to Gallery" link="/gallery" />
-      <CommentInput onSubmit={onFormChange} />
-      <Container>
-        <ul>
-          {filteredComments.map((comment) => {
-            return (
-              <li key={comment.slug}>
-                <CommentsWraper>
-                  <p>{comment.comment}</p>
-                  <Date>{comment.date}</Date>
-                </CommentsWraper>
-              </li>
-            );
-          })}
-        </ul>
-      </Container>
+
+      <CardComments
+        comments = {comments}
+        artPiece = {artPiece}
+      />
+
+      <LinkButton
+        text="Back to Gallery"
+        link="/gallery"/>
     </>
   );
 }
-
-const CommentsWraper = styled.div`
-  background: var(--bg-secondary);
-  border-radius: 10px;
-  min-height: 50px;
-  margin-top: 5px;
-  padding: 5px;
-  box-shadow: var(--shadow);
-  border: solid 1px;
-  position: relative;
-`;
-const Date = styled.small`
-  position: absolute;
-  right: 4px;
-  bottom: 0;
-`;
