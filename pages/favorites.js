@@ -1,10 +1,21 @@
-export default function FavoritesPage({ favorites, artPieces }) {
-  console.log(favorites);
-  console.log(artPieces);
-    const slug = artPieces.map((artPiece)=> artPiece.slug)
-    console.log(slug)
+import ArtGallery from "@/components/Gallery/ArtGallery";
+export default function FavoritesPage({
+  favorites,
+  artPieces,
+  toggleFavorites,
+}) {
   const trueKeys = Object.keys(favorites).filter((key) => favorites[key]);
-  console.log('truekeys',trueKeys)
+  //   console.log('truekeys',trueKeys)
+  const favoriteArtPieces = artPieces.filter((artPiece) =>
+    trueKeys.includes(artPiece.slug)
+  );
+  console.log(favoriteArtPieces);
 
-  return <h1>this is fav page</h1>;
+  return (
+    <ArtGallery
+      artPieces={favoriteArtPieces}
+      favorites={favorites}
+      toggleFavorites={toggleFavorites}
+    />
+  );
 }
