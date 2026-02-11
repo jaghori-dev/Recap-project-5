@@ -4,7 +4,6 @@ export default function CommentInput({ onSubmit }) {
   return (
     <FormContainer>
       <Form onSubmit={onSubmit}>
-        {/* <label htmlFor="comment">Comment: </label> */}
         <Input type="text" name="comment" id="comment" placeholder="Comment" />
         <Button type="submit">Send</Button>
       </Form>
@@ -23,16 +22,16 @@ const Form = styled.form`
   gap: 10px;
 `;
 const Input = styled.input`
-  width: 300px;
-  min-height: 40px;
-  border-radius: 60px;
+  width: 360px;
+  min-height: 50px;
+  border-radius: 12px;
   padding: 10px;
 `;
 const Button = styled.button`
   padding: 10px 20px;
   background-color: blue;
   color: white;
-  border-radius: 12px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
 `;

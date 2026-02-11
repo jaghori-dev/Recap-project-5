@@ -15,6 +15,7 @@ export default function Details({ artPieces, handleFormValue, comments }) {
     event.preventDefault();
     const newComment = event.target.comment.value;
     handleFormValue(artPiece.slug, newComment);
+    event.target.reset()
   }
   const { slug } = router.query;
   if (!slug) {
@@ -46,7 +47,7 @@ export default function Details({ artPieces, handleFormValue, comments }) {
             return (
               <li key={comment.slug}>
                 <CommentsWraper>
-                  <p className="artPiece-description">{comment.comment}</p>
+                  <p>{comment.comment}</p>
                   <Date>{comment.date}</Date>
                 </CommentsWraper>
               </li>
@@ -60,8 +61,8 @@ export default function Details({ artPieces, handleFormValue, comments }) {
 
 const CommentsWraper = styled.div`
   background: var(--bg-secondary);
-  border-radius: 12px;
-  min-height:40px;
+  border-radius: 10px;
+  min-height:50px;
   margin-top: 5px;
   padding: 5px;
   box-shadow: var(--shadow);
